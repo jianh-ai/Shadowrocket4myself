@@ -6,7 +6,7 @@
 httpdns.bilivideo.com
 
 [MITM]
-hostname = %APPEND% *.bilibili.com, api.live.bilibili.com, *.biliapi.net, *.biliapi.com, *.bilivideo.com, app.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com, api.bilibili.com, manga.bilibili.com, grpc.biliapi.net,api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net
+hostname = %APPEND% api.live.bilibili.com, api.biliapi.com, app.bilibili.com, api.bilibili.com, manga.bilibili.com, -*tracker*.biliapi.net, api.biliapi.net, grpc.biliapi.net
 
 [URL Rewrite]
 # 屏蔽广告浮窗
