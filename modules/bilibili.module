@@ -39,34 +39,34 @@ hostname = %APPEND% api.live.bilibili.com, api.biliapi.com, app.bilibili.com, ap
 
 [Script]
 # 热门话题
-biliad = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.show\.v1\.Popular\/Index$,script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/bilibili.protobuf.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.show\.v1\.Popular\/Index$,requires-body=true,script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/bilibili.protobuf.js
 # 视频播放下方商品推广@ddgksf2013
-biliad = type=http-response,pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 屏蔽直播间商品广告浮窗@ddgksf2013
-biliad = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 直播去广告@bm7
-biliad = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 开屏广告预加载@yjqiang
-biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 屏蔽直播页顶部轮播图@ddgksf2013
-biliad = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 推荐去广告@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 追番去广告@ddgksf2013
-biliad = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 观影页面去广告@ddgksf2013
-biliad = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 屏蔽首页右上活动@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
 # 搜索去广告@BiliUniverse
-biliad = type=http-response,pattern=^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
 # 交互点赞投票弹幕及会员弹幕@BiliUniverse
-biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile),script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile),requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
 # 青少年弹窗@BiliUniverse
-biliad = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
 # UP主推荐广告@BiliUniverse
-biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|TFInfo)$,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js,requires-body=true,max-size=-1,timeout=60
+biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|TFInfo)$,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
 # 动态综合页及视频页去广告@BiliUniverse
-;biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)$,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
-biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynVideo,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js,requires-body=true,max-size=-1,timeout=60
-biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynAll,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoA.js,requires-body=true,max-size=-1,timeout=60
+;biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)$,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
+biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynVideo,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
+biliad = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynAll,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoA.js
