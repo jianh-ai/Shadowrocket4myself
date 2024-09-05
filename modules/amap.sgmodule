@@ -3,20 +3,20 @@
 #!author=aijianh
 
 [URL Rewrite]
-^https:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan) _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? _ reject-dict
-^https:\/\/.*\.amap\.com\/ws\/boss\/order\/car\/king_toolbox_car_bubble _ reject-dict
-^https:\/\/.*\.amap\.com\/ws\/boss\/tips\/onscene_visual_optimization _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-assets _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-location _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/ridewalk-end-fc _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? _ reject-dict
-^https:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/mapapi\/hint_text\/offline_data _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/message\/notice\/list _ reject-dict
-^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword _ reject-dict
+^https:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan) _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? _ REJECT-DICT
+^https:\/\/.*\.amap\.com\/ws\/boss\/order\/car\/king_toolbox_car_bubble _ REJECT-DICT
+^https:\/\/.*\.amap\.com\/ws\/boss\/tips\/onscene_visual_optimization _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-assets _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-location _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/ridewalk-end-fc _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? _ REJECT-DICT
+^https:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/mapapi\/hint_text\/offline_data _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/message\/notice\/list _ REJECT-DICT
+^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword _ REJECT-DICT
 
 [Script]
 amap = type=http-response,pattern=^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/main/js/ali.js
