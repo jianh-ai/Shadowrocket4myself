@@ -13,13 +13,10 @@
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/ridewalk-end-fc _ REJECT-DICT
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? _ REJECT-DICT
 ^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? _ REJECT-DICT
-^https:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? _ REJECT-DICT
 ^https:\/\/m5\.amap\.com\/ws\/mapapi\/hint_text\/offline_data _ REJECT-DICT
-^https:\/\/m5\.amap\.com\/ws\/message\/notice\/list _ REJECT-DICT
-^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword _ REJECT-DICT
 
 [Script]
-amap = type=http-response,pattern=^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/main/js/ali.js
+amdc = type=http-response,pattern=^http:\/\/amdc\.m\.taobao\.com,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/amdc.js
 # 导航净化
 amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
 amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/bus\/plan\/integrate\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
@@ -30,18 +27,28 @@ amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_b
 amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
 amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
 # 首页净化
-amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
-amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+;amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+;amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
 # 我的净化
-amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+;amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
 # 附近页
-amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+;amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
 # 开屏广告
-amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap =type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+;amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
 # 打车净化
 amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
-amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+;amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
 amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+# 我的抓取
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+amap = type=http-response,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword,requires-body=true,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
 
 [MITM]
-hostname = %APPEND% m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com
+hostname = %APPEND% *.amap.com
