@@ -1,4 +1,4 @@
-// 获取请求的 URL 和 body
+// 2024-09
 const url = $request.url;
 const body = $request.body;
 
@@ -9,8 +9,8 @@ if (url.includes("/amdc/mobileDispatch")) {
 
   // 检查 appName 是否为 AMapiPhone
   if (params.get("appName") === "AMapiPhone") {
-    // 返回 404 错误，拒绝访问
-    $done({ status: "HTTP/1.1 404 Not Found", body: "Request Denied: appName is AMapiPhone" });
+    // 直接结束请求，不返回响应
+    $done();  // 结束处理，阻止请求
   } else {
     // 如果 appName 不是 AMapiPhone，允许继续访问
     $done({});
