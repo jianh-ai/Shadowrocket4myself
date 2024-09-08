@@ -1,21 +1,11 @@
-// 2024-09
-const url = $request.url;
-const body = $request.body;
+// 获取 User-Agent
+var ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
 
-// 检查是否是特定的 URL
-if (url.includes("/amdc/mobileDispatch")) {
-  // 解析请求体内容
-  const params = new URLSearchParams(body);
-
-  // 检查 appName 是否为 AMapiPhone
-  if (params.get("appName") === "AMapiPhone") {
-    // 直接结束请求，不返回响应
-    $done();  // 结束处理，阻止请求
-  } else {
-    // 如果 appName 不是 AMapiPhone，允许继续访问
-    $done({});
-  }
+// 检查 User-Agent 中是否包含特定关键词
+if (/(AMap|Cainiao|%E9%A3%9E%E7%8C%AA%E6%97%85%E8%A1%8C|%E5%96%B5%E8%A1%97|%E5%A4%A9%E7%8C%AB|Hema4iPhone|Moon|DMPortal)/.test(ua)) {
+  // 阻止请求，不返回内容
+  $done({status: "HTTP/1.1 404 Not Found"});
 } else {
-  // 如果 URL 不匹配特定路径，允许继续访问
+  // 允许其他请求通过
   $done({});
 }
