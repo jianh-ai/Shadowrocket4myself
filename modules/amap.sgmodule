@@ -19,9 +19,7 @@
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword _ REJECT-DICT
 
 [Script]
-amdc = type=http-response,pattern=^http:\/\/amdc\.m\.taobao\.com,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/amdc.js
-
-# amap = type=http-response,pattern=^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/main/js/ali.js
+amap = type=http-response,pattern=^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/main/js/ali.js
 # 导航净化
 amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
 amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/bus\/plan\/integrate\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
