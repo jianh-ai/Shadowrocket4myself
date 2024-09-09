@@ -1,3 +1,5 @@
+// 2024-09
+console.log($request.headers);
 // 获取 User-Agent
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
 
