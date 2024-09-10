@@ -1,18 +1,25 @@
-// 获取请求的 URL 和 User-Agent
-var ua = $request.headers['User-Agent'];
-var url = $request.url;
+// 2024-09
+const url = $request.url;
+const header = $request.headers;
+const ua = header["User-Agent"] || header["user-agent"];
 
-// 打印调试日志
-console.log("URL:", url);
-console.log("User-Agent:", ua);
-
-// 判断是否是指定的 URL 并且 UA 包含 "AMapiPhone"
-if (url.includes("http://amdc.m.taobao.com/amdc/mobileDispatch") && ua.includes("AMapiPhone")) {
-    console.log("UA 包含 AMapiPhone，返回 200 OK");
-
-    // 返回 200 OK 状态码，模拟成功响应
-    $done({ response: { status: 200 } });
-} else {
-    console.log("继续正常请求");
+if (url.includes("/amdc/mobileDispatch")) {
+  if (
+    ua.includes("AMapiPhone") || // 高德地图
+    ua.includes("Alibaba") || // 阿里巴巴
+    ua.includes("TmallCampus") || // 天猫校园
+    ua.includes("Cainiao4iPhone") || // 菜鸟
+    ua.includes("%E9%A3%9E%E7%8C%AA%E6%97%85%E8%A1%8C") || // 飞猪旅行
+    ua.includes("%E4%BC%98%E9%85%B7") || // 优酷
+    ua.includes("%E9%97%B2%E9%B1%BC") // 咸鱼
+  ) {
+    // 返回 404 状态码
+    $done({ response: { status: 404 } });
+  } else {
+    // 继续正常请求
     $done({});
+  }
+} else {
+  // 继续正常请求
+  $done({});
 }
