@@ -13,13 +13,16 @@ if (url.includes("/amdc/mobileDispatch")) {
     ua.includes("%E4%BC%98%E9%85%B7") || // 优酷
     ua.includes("%E9%97%B2%E9%B1%BC") // 咸鱼
   ) {
+    // 打印调试日志
+    console.log("符合条件，返回 404");
+    
     // 返回 404 状态码
     $done({ response: { status: 404 } });
   } else {
-    // 继续正常请求
+    console.log("不符合条件，继续正常请求");
     $done({});
   }
 } else {
-  // 继续正常请求
+  console.log("URL 不匹配，继续正常请求");
   $done({});
 }
