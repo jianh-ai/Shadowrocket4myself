@@ -7,16 +7,12 @@ console.log("URL:", url);
 console.log("User-Agent:", ua);
 
 // 判断是否是指定的 URL 并且 UA 包含 "AMapiPhone"
-if (url.includes("/amdc/mobileDispatch") && ua.includes("AMapiPhone")) {
-    // 打印调试日志，确认条件被触发
-    console.log("UA 包含 AMapiPhone，返回 404");
+if (url.includes("http://amdc.m.taobao.com/amdc/mobileDispatch") && ua.includes("AMapiPhone")) {
+    console.log("UA 包含 AMapiPhone，返回 200 OK");
 
-    // 返回 404 状态码，拒绝请求
-    $done({ response: { status: 404, body: "Request blocked by script" } });
+    // 返回 200 OK 状态码，模拟成功响应
+    $done({ response: { status: 200 } });
 } else {
-    // 打印日志，确认继续正常请求
     console.log("继续正常请求");
-    
-    // 继续正常处理请求
     $done({});
 }
