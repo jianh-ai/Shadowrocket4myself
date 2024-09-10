@@ -3,11 +3,21 @@
 var ua = $request.headers['User-Agent'];
 var url = $request.url;
 
+// 打印调试日志
+console.log("URL:", url);
+console.log("User-Agent:", ua);
+
 // 判断是否是指定的 URL 并且 UA 包含 "Amap"
-if (url.includes("http://amdc.m.taobao.com/amdc/mobileDispatch") && ua.includes("Amap")) {
+if (url.includes("/amdc/mobileDispatch") && ua.includes("Amap")) {
+    // 打印调试日志，确认条件被触发
+    console.log("UA 包含 Amap，返回 404");
+
     // 返回 404 状态码，拒绝请求
     $done({ response: { status: 404, body: "Request blocked by script" } });
 } else {
+    // 打印日志，确认继续正常请求
+    console.log("继续正常请求");
+    
     // 继续正常处理请求
     $done({});
 }
