@@ -3,6 +3,9 @@ const url = $request.url;
 const header = $request.headers;
 const ua = header["User-Agent"] || header["user-agent"];
 
+console.log("URL:", url);
+console.log("User-Agent:", ua);
+
 if (url.includes("/amdc/mobileDispatch")) {
   if (
     ua.includes("AMapiPhone") || // 高德地图
