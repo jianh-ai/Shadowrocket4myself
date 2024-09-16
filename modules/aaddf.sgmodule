@@ -1,0 +1,373 @@
+#!name=去广告合集
+#!desc=去广告合集
+#!author=aijianh
+
+[Rule]
+# baidu
+DOMAIN,httpdns.bilivideo.com,REJECT
+DOMAIN,dlswbr.baidu.com,REJECT
+DOMAIN,h2tcbox.baidu.com,REJECT
+DOMAIN,feed-image.baidu.com,REJECT
+DOMAIN,als.baidu.com,REJECT
+DOMAIN,bgg.baidu.com,REJECT
+DOMAIN,miao.baidu.com,REJECT
+DOMAIN,xlab.baidu.com,REJECT
+DOMAIN,gsp0.baidu.com,REJECT
+DOMAIN,dss0.baidu.com,REJECT
+DOMAIN,mobads.baidu.com,REJECT
+DOMAIN,mobads-logs.baidu.com,REJECT
+DOMAIN,pos.baidu.com,REJECT
+DOMAIN,wn.pos.baidu.com,REJECT
+DOMAIN,afd.baidu.com,REJECT
+DOMAIN,afdconf.baidu.com,REJECT
+DOMAIN,union.baidu.cn,REJECT
+DOMAIN,union.baidu.com,REJECT
+DOMAIN,httpdns.baidu.com,REJECT
+DOMAIN,httpsdns.baidu.com,REJECT
+DOMAIN,httpdns.baidubce.com,REJECT
+DOMAIN,nmtest.bdstatic.com,REJECT
+DOMAIN,mobads-pre-config.cdn.bcebos.com,REJECT
+DOMAIN,tuisong.baidu.com,REJECT
+
+# didi
+IP-CIDR,123.207.209.39/32,REJECT
+IP-CIDR,123.207.209.60/32,REJECT
+
+[URL Rewrite]
+# > AcFun
+^https?:\/\/aes\.acfun\.cn\/s\?adzones _ REJECT
+^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ _ REJECT
+
+# > 阿里云盘
+^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_info _ REJECT
+
+# > 爱回收
+^https?:\/\/gw\.aihuishou\.com\/app-portal\/home\/getadvertisement _ REJECT
+
+# > AppSo
+^https?:\/\/sso\.ifanr\.com\/jiong\/IOS\/appso\/splash\/ _ REJECT
+
+# > 爱奇艺
+# 播放页多余动效
+^https:\/\/iface2\.iqiyi\.com\/ivos\/interact\/video\/data\? _ REJECT
+# 播放页白金会员按钮
+^https:\/\/iface2\.iqiyi\.com\/video\/3\.0\/v_interface_proxy\? _ REJECT
+# 播放页会员提示
+^https:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show\? _ REJECT
+# 青少年弹窗
+^https:\/\/iface2\.iqiyi\.com\/views_pop\/3\.0\/pop_control\? _ REJECT
+
+# > 爱企查
+^https:\/\/b2baifanfan\.baidu\.com\/crm\/web\/b2b\/im\/common\/getConfigByDeviceNum _ REJECT
+
+# > 爱思助手
+^https?:\/\/list-app-m\.i4\.cn\/getopfstadinfo\.xhtml _ REJECT
+
+# > 宝宝树孕育
+^https?:\/\/aimg\.babytreeimg\.com\/group1\/M00\/.*\.jpg _ REJECT
+# 开屏广告@alist.choc.ga
+^https?:\/\/plough\.babytree\.com\/plough\.do _ REJECT
+# 弹窗广告@Ron
+^http:\/\/mapiweb\.babytree\.com\/newapi\/luban\/behavior\/receive _ REJECT
+^http:\/\/go\.babytree\.com\/go_pregnancy\/api\/index_activity\/get_app_index_activity _ REJECT
+^http:\/\/go\.babytree\.com\/go_tool\/api\/feeding_record\/get_home_banner_info _ REJECT
+
+# > 百度
+^https?:\/\/180\.76\.76\.200 _ REJECT
+^https?:\/\/180\.76\.76\.112 _ REJECT
+# 我的抓取
+^https?:\/\/mbd\.baidu\.com\/baiduboxapp\/personal _ REJECT-200
+^https?:\/\/mbd\.baidu\.com\/searchbox _ REJECT-200
+^https?:\/\/mbd\.baidu\.com\/.*searchbox\?action=splash _ REJECT
+^https?:\/\/cover\.baidu\.com\/cover\/page\/dspSwitchAds _ REJECT
+^https?:\/\/baichuan\.baidu\.com\/rs\/adpmobile\/launch _ REJECT
+^https?:\/\/[\s\S]*\.baidu\.com/.*?ad[xs]\.php _ REJECT
+
+# > 百度地图
+# 我的页面
+^https:\/\/newclient\.map\.baidu\.com\/grow-engine\/api\/common\/userHome\? _ REJECT
+# 打车页
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/notice _ REJECT
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/baseinfo _ REJECT
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/cobuild\/pull _ REJECT
+^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/operationgirdle$ _ REJECT
+^https:\/\/yongche\.baidu\.com\/gomarketing\/api\/activity\/talos\/activitycard _ REJECT
+^https:\/\/yongche\.baidu\.com\/gomarketing\/api\/popup\/getentrancecordovaurl$ _ REJECT
+# 首页底部推荐
+^https:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content _ REJECT
+^https:\/\/ugc\.map\.baidu\.com\/govui\/rich_content _ REJECT
+# 搜索框下足记Tips
+^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?&qt=rgc _ REJECT
+^https:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=rgc _ REJECT
+# 搜索推广
+^https:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=hw _ REJECT
+# 广告
+^https:\/\/newclient\.map\.baidu\.com\/client\/noticebar\/get _ REJECT
+^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads _ REJECT
+# 各种商业推广
+^https:\/\/newclient\.map\.baidu\.com\/client\/crossmarketing _ REJECT
+# 我的页面地图动态
+^https:\/\/newclient\.map\.baidu\.com\/client\/usersystem\/home\/dynamic _ REJECT
+# 酒店 - 弹窗、推广
+^https:\/\/ecom\.map\.baidu\.com\/ad-ops\/afd _ REJECT
+^https:\/\/maphotel\.baidu\.com\/hotel\/goextranet\/activity\/detail\? _ REJECT
+# 我的抓取
+^https:\/\/integralwall\.baidu\.com\/integralwall\/interact\/applesearchads _ REJECT
+
+# > 百度网盘
+# 设置信息流
+^https:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list _ REJECT-200
+# 通用广告
+^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/(guanggao|ts_ad) _ REJECT
+^https:\/\/pan\.baidu\.com\/rest\/.*\/pcs\/ad _ REJECT-200
+# 活动推广
+^https:\/\/pan\.baidu\.com\/act\/api\/activityentry _ REJECT-200
+# 热搜list
+^https:\/\/pan\.baidu\.com\/feed\/hotlist _ REJECT-200
+# 搜索填词
+^https:\/\/pan\.baidu\.com\/queryintent\/queryhint _ REJECT-200
+# 金币乐园
+^https:\/\/pan\.baidu\.com\/coins\/center\/notice _ REJECT-200
+# 首页信息流
+^https:\/\/pan\.baidu\.com\/feed\/cardinfos _ REJECT
+# 会员权益
+^https:\/\/pan\.baidu\.com\/api\/taskscore\/taskgrouplist _ REJECT
+^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist _ REJECT
+^https:\/\/pan\.baidu\.com\/api\/certuser\/get _ REJECT
+^https:\/\/pan\.baidu\.com\/api\/useractivity\/activity _ REJECT
+
+# > 百度贴吧
+^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover _ REJECT
+^https:\/\/tiebac\.baidu\.com\/c\/f\/forum\/forumGuide _ REJECT
+# 我的抓取
+^https?:\/\/tb3\.bdstatic\.com\/tb\/wise\/hybrid-usergrow-game _ REJECT
+^https:\/\/tieba\.baidu\.com\/mo\/q\/hybrid-business-ad _ REJECT
+^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule _ REJECT
+^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo _ REJECT
+^https?:\/\/tiebac\.baidu\.com\/c\/f\/aichat _ REJECT
+^https:\/\/nsclick\.baidu\.com\/v\.gif _ REJECT
+^https:\/\/pn\.baidu\.com\/iad _ REJECT
+
+# > 哔哩哔哩
+# hostname = app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net, app.biliapi.net
+# 屏蔽广告浮窗
+^https:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive _ REJECT
+# Material
+^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report _ REJECT
+# 小卡片广告
+^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/cards _ REJECT
+# 点击追番卡片
+^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/ogv\/cards _ REJECT
+# 屏蔽IP请求
+^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp _ REJECT
+^https:\/\/app\.bilibili\.com\/x\/resource\/ip _ REJECT
+# 屏蔽DefaultWord
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.app\.interface\.v1\.Search\/Default _ REJECT
+# 满意度调研
+^https:\/\/api\.bilibili\.com\/x\/v2\/dm\/qoe\/show _ REJECT
+# 开屏广告
+^https:\/\/api\.bilibili\.com\/x\/vas_ads_open\/ads _ REJECT
+^https:\/\/api\.bilibili\.com\/x\/mengqi\/v1\/resource _ REJECT
+^https:\/\/app\.bilibili\.com\/x\/resource\/peak\/download _ REJECT
+^https:\/\/app\.bilibili\.com\/x\/v\d\/splash _ REJECT
+# 我的抓取
+^https?:\/\/.*\/v1\/resource\/.*\.(jpg|zip|webp|json) _ REJECT
+^https?:\/\/.+\.hdslb\.com\/bfs\/sycp _ REJECT
+^http:\/\/.*\/upgcxcode\/.*\.m4s _ REJECT
+^https:\/\/(api\.bilibili\.com|api\.biliapi\.net)\/x\/push\/report _ REJECT
+^https:\/\/(api\.bilibili\.com|api\.biliapi\.net)\/x\/report\/heartbeat\/mobile _ REJECT
+
+# > 彩云天气
+# 发现页活动@ddgksf2013
+^https:\/\/starplucker\.cyapi\.cn\/v\d\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) _ REJECT
+# 我的抓取
+^https:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) _ REJECT
+
+# > 大众点评
+^https:\/\/img\.meituan\.net\/dpmobile\/.*\.jpg _ REJECT
+^https:\/\/img\.meituan\.net\/dpmobile\/68f9c0dbad896352841ae32219c849e91876046\.png\.webp _ REJECT
+
+# > 豆瓣
+^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash _ REJECT
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* _ REJECT
+# 开屏广告
+^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash _ REJECT
+# 信息流广告
+^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad _ REJECT
+# 电影板块广告
+^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ _ REJECT
+^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad _ REJECT
+# 首页横幅
+^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner _ REJECT
+# 搜索填充词
+^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words _ REJECT
+
+# > 斗鱼
+^https?:\/\/douyucdn\.cn\/.+?\/appapi\/getinfo _ REJECT
+^https?:\/\/daoyu\.sdo\.com\/api\/userCommon\/getAppStartAd _ REJECT
+^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo _ REJECT
+^https?:\/\/staticlive\.douyucdn\.cn\/.+?\/getStartSend _ REJECT
+^https?:\/\/staticlive\.douyucdn\.cn\/upload\/signs\/ _ REJECT
+^https?:\/\/capi\.douyucdn\.cn\/lapi\/sign\/app(api)?\/getinfo\?client_sys=ios _ REJECT
+^https?:\/\/capi\.douyucdn\.cn\/api\/ios_app\/check_update _ REJECT
+^https?:\/\/capi\.douyucdn\.cn\/api\/v1\/getStartSend?client_sys=ios _ REJECT
+
+# > 滴滴@怎么肥事
+^https:\/\/pt-starimg\.didistatic\.com\/static\/starimg\/node\/.*.(jpg|png|gif) _ REJECT
+# 滴滴出行
+^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast _ REJECT
+^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf _ REJECT
+# 滴滴代驾
+^https:\/\/daijia\.kuaidadi\.com\/gateway _ REJECT
+# 滴滴青桔
+^https:\/\/as\.xiaojukeji\.com\/ep\/as\/conf\?ns _ REJECT
+^https:\/\/freight\.xiaojukeji\.com\/gateway _ REJECT
+^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget _ REJECT
+^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget _ REJECT
+^https:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds _ REJECT
+^https:\/\/omgup*\.xiaojukeji\.com\/api _ REJECT
+
+# > 飞常准
+^https:\/\/app\.variflight\.com\/ad\/ _ REJECT
+^https:\/\/app\.variflight\.com\/v\d\/advert\/ _ REJECT
+
+# > 高德地图
+# 导航净化
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan)\? _ REJECT
+^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? _ REJECT
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? _ REJECT
+^https:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? _ REJECT
+# 首页净化
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(main-page-assets|main-page-location|ridewalk-end-fc) _ REJECT
+^https:\/\/m5\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword)\? _ REJECT
+^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? _ REJECT
+^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? _ REJECT
+^https:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? _ REJECT
+# 打车净化
+^https:\/\/.*\.amap\.com\/ws\/boss\/(order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization)\? _ REJECT
+
+# > IT之家
+^https:\/\/api\.zuihuimai\.com\/static\/.*\/hongbao url reject
+^https:\/\/dat\.ruanmei\.com\/ithome\/money\/acd\.json url reject
+
+
+[Script]
+# > 爱奇艺
+# 首页信息流广告
+iqiyi = type=http-response,pattern=^http:\/\/[\d\.]+\/3f1\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+iqiyi = type=http-response,pattern=^http:\/\/access\.if\.iqiyi\.com\/3f1\/cards\.iqiyi\.com\/(views_category\/3\.0\/category_home|views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+iqiyi = type=http-response,pattern=^https:\/\/cards\.iqiyi\.com\/views_category\/3\.0\/(category_home|categorylib_content|film_hybrid)\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+iqiyi = type=http-response,pattern=^https:\/\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 播放详情页
+iqiyi = type=http-response,pattern=^https:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 搜索页列表
+iqiyi = type=http-response,pattern=^https:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/(hot_query_)?search\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 评论区
+iqiyi = type=http-response,pattern=^https:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 我的页面菜单
+iqiyi = type=http-response,pattern=^https:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 首页左上角天气
+iqiyi = type=http-response,pattern=^https:\/\/iface2\.iqiyi\.com\/control\/3\.0\/init_proxy\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 通用控制,各tab页二楼
+iqiyi = type=http-response,pattern=^https:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 底部tab,顶部tab
+iqiyi = type=http-response,pattern=^https:\/\/iface2\.iqiyi\.com\/views\/3\.0\/(bottom_theme|home_top_menu)\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 搜索框填充词
+iqiyi = type=http-response,pattern=^https:\/\/search\.video\.iqiyi\.com\/q\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+# 开屏广告,播放广告
+iqiyi = type=http-response,pattern=^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cnftp.js
+
+# > 百度地图
+baidu = type=http-response,pattern=^https:\/\/newclient\.map\.baidu\.com\/client\/imap\/dl\/s\/UpdateInfo\.php\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/baidu/map.js
+# 我的页面
+baidu = type=http-response,pattern=^https:\/\/newclient\.map\.baidu\.com\/client\/usersystem\/mine\/page\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/baidu/map.js
+
+# > 百度网盘
+# 开屏广告
+baidu = type=http-response,pattern=^https:\/\/pan\.baidu\.com\/api\/getsyscfg,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/baidu/baiduCloud.js
+# 设置页游戏
+baidu = type=http-response,pattern=^https:\/\/pan\.baidu\.com\/rest\/.*\/membership\/user,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/baidu/baiduCloud.js
+
+# > 百度贴吧
+baidu = type=http-response,pattern=^https:\/\/tiebac\.baidu\.com\/livefeed\/feed,requires-body=true,script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/TB.js
+baidu = type=http-response,pattern=^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home,requires-body=true,script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/TB.js
+baidu = type=http-response,pattern=^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile,requires-body=true,script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/TB.js
+baidu = type=http-response,pattern=^https:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom,requires-body=true,script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/TB.js
+baidu = type=http-response,pattern=^https:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$),requires-body=true,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
+baidu = type=http-response,pattern=^https:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd,requires-body=true,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
+
+# > 哔哩哔哩
+# 首页净化
+bili = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+bili = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+# 直播间广告
+bili = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+# 直播去广告
+bili = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+# 推荐去广告
+bili = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index(\/story)?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+# 追番去广告
+bili = type=http-response,pattern=^https:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+# 观影去广告
+bili = type=http-response,pattern=^https:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/json.js
+# 弹幕净化
+bili = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/DmView,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoC.js
+# 搜索去广告
+bili = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoC.js
+# 动态综合页
+bili = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynAll,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoC.js
+# 播放页广告
+bili = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.(view|viewunite)\.v1\.View\/View,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoC.js
+# 热门话题
+bili = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.show\.v1\.Popular\/Index$,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/protoC.js
+
+# > 彩云天气
+# 解锁会员
+caiyun = type=http-response,pattern=^https:\/\/biz\.cyapi\.cn\/(api\/v1\/user_detail|p\/v1\/vip_info|v2\/user),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+caiyun = type=http-response,pattern=^https:\/\/wrapper\.cyapi\.cn\/v1\/(nafp\/origin_images|satellite)\? url script-request-header https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+# 首页顶部推广
+caiyun = type=http-response,pattern=^https?:\/\/starplucker\.cyapi\.cn/v\d/operation/(homefeatures|feeds|banners|features),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+# 发现页活动
+caiyun = type=http-response,pattern=^https?:\/\/starplucker\.cyapi\.cn\/v\d\/campaigns,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+# 我的抓取
+caiyun = type=http-response,pattern=^https:\/\/wrapper\.cyapi\.cn\/v1\/activity\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+caiyun = type=http-response,pattern=^https:\/\/api\.caiyunapp\.com\/v1\/activity\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+
+# > 滴滴
+# 滴滴出行
+^https:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me url script-response-body https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/main/js/didi.js
+^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core url script-response-body https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/main/js/didi.js
+^https:\/\/api\.udache\.com\/gulfstream\/pre-sale\/v1\/other\/pGetSceneList url script-response-body https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/main/js/didi.js
+^https:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList url script-response-body https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/main/js/didi.js
+^https:\/\/api\.udache\.com\/gulfstream\/passenger-center\/v2\/other\/pInTripLayout url script-response-body https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/main/js/didi.js
+
+# > 高德地图
+amap = type=http-request,pattern=^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/main/js/ali.js
+# 导航净化
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/bus\/plan\/integrate\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-(hotel|launch)\/page\/main\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_bff\/hotword\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+# 首页净化
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+# 我的净化
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+# 附近页
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+# 开屏广告
+amap = type=http-response,pattern=^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+# 打车净化
+amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information),requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+amap = type=http-response,pattern=^https:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\?,requires-body=true,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/amap.js
+
+# > IT之家
+^https:\/\/napi\.ithome\.com\/api\/(?:news\/index|topmenu\/getfeeds\?|api\/douyin\/GetLiveInfo) url script-response-body https://raw.githubusercontent.com/luestr/ProxyResource/main/Resource/Script/IThome/IThome_remove_ads.js
+
+[MITM]
+hostname = %APPEND%  aes.acfun.cn, api-new.app.acfun.cn, member.alipan.com, gw.aihuishou.com, sso.ifanr.com, *.iqiyi.com, b2baifanfan.baidu.com, list-app-m.i4.cn, aimg.babytreeimg.com, *.babytree.com, *.baidu.com, *.bilibili.com, *.biliapi.net, *.cyapi.cn, api.caiyunapp.com, *.douban.com, *.douyucdn.cn, *.xiaojukeji.com, 120.241.14*.*, 123.207.209.*, 116.85.3.37, pt-starimg.didistatic.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, app.variflight.com, *.amap.com, amdc.m.taobao.com, api.zuihuimai.com, dat.ruanmei.com, napi.ithome.com
