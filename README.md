@@ -1,6 +1,8 @@
 # Shadowrocket4myself
 rules'document for myself
 
+aadf23.sgmodule为合集
+
 ---
 thank for
 
