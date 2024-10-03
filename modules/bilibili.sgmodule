@@ -10,62 +10,63 @@ hostname = %APPEND% api.live.bilibili.com, api.biliapi.com, app.bilibili.com, ap
 
 [URL Rewrite]
 # 屏蔽广告浮窗
-^https:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive _ reject-dict
-# MaterialAd
-^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report _ reject-dict
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/pgc\/activity\/deliver\/material\/receive _ REJECT
+# Material
+# 大会员广告
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/vip\/ads\/materials _ REJECT
 # 小卡片广告
-^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/cards _ reject-dict
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/pgc\/season\/player\/cards _ REJECT
 # 点击追番卡片
-^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/ogv\/cards _ reject-dict
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/pgc\/season\/player\/ogv\/cards _ REJECT
 # 屏蔽IP请求
-^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp _ reject-dict
-^https:\/\/app\.bilibili\.com\/x\/resource\/ip _ reject-dict
-# 开屏广告
-^https:\/\/api\.bilibili\.com\/x\/vas_ads_open\/ads _ reject-dict
-^https:\/\/api\.bilibili\.com\/x\/mengqi\/v1\/resource _ reject-dict
-^https:\/\/app\.bilibili\.com\/x\/resource\/peak\/download _ reject-dict
-^https:\/\/app\.bilibili\.com\/x\/v\d\/splash _ reject-dict
-# 漫画去广告@ddgksf2013
-^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) _ reject-dict
-# 屏蔽DefaultWord@ddgksf2013
-^https?:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default _ reject-dict
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/web-interface\/zone\?jsonp _ REJECT
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/resource\/ip _ REJECT
+# 屏蔽DefaultWord
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.app\.interface\.v1\.Search\/Default _ REJECT
 # 满意度调研
-^https:\/\/api\.bilibili\.com\/x\/v2\/dm\/qoe\/show _ reject
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/v2\/dm\/qoe\/show _ REJECT
+# 开屏广告
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/vas_ads_open\/ads _ REJECT
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/mengqi\/v1\/resource _ REJECT
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/resource\/peak\/download _ REJECT
+^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/v\d\/splash _ REJECT
 # 我的抓取
-^http?:\/\/.*/v1/resource/.*\.(jpg|zip|webp|json|m4s) _ reject
-^https?:\/\/.+\.hdslb\.com\/bfs\/sycp _ reject
-^https:\/\/(api\.bilibili\.com|api\.biliapi\.net)\/x\/push\/report _ reject
-^https:\/\/(api\.bilibili\.com|api\.biliapi\.net)\/x\/report\/heartbeat\/mobile _ reject
+^https?:\/\/.*\/v1\/resource\/.*\.(jpg|zip|webp|json) _ REJECT
+^https?:\/\/.+\.hdslb\.com\/bfs\/sycp _ REJECT
 
 [Script]
+# 首页净化
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/resource\/show\/tab\/v2,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/resource\/top\/activity,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+# 直播间广告
+bili = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+# 直播去广告
+bili = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+# 推荐去广告
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/v2\/feed\/index(\/story)?,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+# 追番去广告
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/pgc\/page\/bangumi,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+# 观影去广告
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/pgc\/page\/cinema\/tab\?,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/bilibili.js
+# 弹幕净化
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmView,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/biliproto.js
+# 搜索去广告
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/biliproto.js
+# 动态综合页
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynAll,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/biliproto.js
+# 播放页广告
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.app\.(view|viewunite)\.v1\.View\/View,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/biliproto.js
+# 评论区广告
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/refs/heads/main/js/biliproto.js
 # 热门话题
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.show\.v1\.Popular\/Index$,requires-body=true,script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/bilibili.protobuf.js
-# 视频播放下方商品推广@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/pgc\/season\/app\/related\/recommend\?,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 屏蔽直播间商品广告浮窗@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 直播去广告@bm7
-biliad = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 开屏广告预加载@yjqiang
-biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 屏蔽直播页顶部轮播图@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 推荐去广告@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 追番去广告@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/pgc\/page\/bangumi,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 观影页面去广告@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/pgc\/page\/cinema\/tab\?,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 屏蔽首页右上活动@ddgksf2013
-biliad = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_json.js
-# 搜索去广告@BiliUniverse
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
-# 交互点赞投票弹幕及会员弹幕@BiliUniverse
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile),requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
-# 青少年弹窗@BiliUniverse
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
-# UP主推荐广告@BiliUniverse
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|TFInfo)$,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
-# 动态综合页及视频页去广告@BiliUniverse
-;biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynVideo,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
-biliad = type=http-response,pattern=^https:\/\/(app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynAll,requires-body=true,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/bilibili_proto_beta.js
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.app\.show\.v1\.Popular\/Index$,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Shadowrocket4myself/refs/heads/main/js/biliproto.js
+# 青少年模式弹窗
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,requires-body=true,script-path=https://raw.githubusercontent.com/jianh-ai/Quantumult4myself/refs/heads/main/js/biliproto.js
+# show.tab
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/resource\/show\/tab\/v2\?,requires-body=true,script-path=https://raw.githubusercontent.com/BiliUniverse/Enhanced/main/js/BiliBili.Enhanced.response.js
+# account.mine
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/v2\/account\/mine(\/ipad)?\?,requires-body=true,script-path=https://raw.githubusercontent.com/BiliUniverse/Enhanced/main/js/BiliBili.Enhanced.response.js
+# region.index
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/v2\/region\/index\?,requires-body=true,script-path=https://raw.githubusercontent.com/BiliUniverse/Enhanced/main/js/BiliBili.Enhanced.response.js
+# channel.region.list
+bili = type=http-response,pattern=^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/v2\/channel\/region\/list\?,requires-body=true,script-path=https://raw.githubusercontent.com/BiliUniverse/Enhanced/main/js/BiliBili.Enhanced.response.js
