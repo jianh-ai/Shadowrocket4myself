@@ -21,3 +21,7 @@ thank for
 @ZenmoFeiShi `https://github.com/ZenmoFeiShi/Qx`
 
 @keli `https://github.com/luestr/ProxyResource/tree/main/Tool/Loon/Plugin`
+
+@Virgil Clyne `https://github.com/BiliUniverse/Universe/wiki/🧰-BoxJs`
+
+@timostamm `https://github.com/timostamm/protobuf-ts/tree/v1.0.8`
